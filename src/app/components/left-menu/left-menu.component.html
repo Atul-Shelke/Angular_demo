@@ -1,0 +1,48 @@
+<div class="
+        leftside-menu
+        shadow
+        position-fixed
+        bg-white
+        pt-3
+        menuitem-active
+        overflow-auto
+        custom-scroll-bar
+      " id="sidebar">
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="cursor-pointer be-fulfilled">
+      <img src="../../assets/images/logo.png" routerLink="dashboard" style="width: 10rem" />
+    </div>
+
+  </div>
+
+  <div class="pt-3 d-flex align-items-start justify-content-center flex-column">
+    <div class="sidebar-sticky w-100 overflow-auto">
+
+      <div class="cursor-pointer dashboard-active-span py-3" routerLink="/dashboard" routerLinkActive="active"
+        #rlaHome="routerLinkActive" [routerLinkActiveOptions]="{ exact: true }">
+        <span class="pl-3 pr-2">
+          <img src="../../assets/images/dashboard.svg" [class.d-none]="rlaHome.isActive" />
+          <img src="../../assets/images/dashboard-active.svg" [class.d-none]="!rlaHome.isActive" />
+        </span>
+        <span class="fs-16 dashboard-label">Dashboard</span>
+      </div>
+      <div class="cursor-pointer dashboard-active-span py-3" routerLink="/product/list" routerLinkActive="active"
+        #rlaHome="routerLinkActive" [routerLinkActiveOptions]="{ exact: true }">
+        <span class="pl-3 pr-2">
+          <img src="../../assets/images/dashboard.svg" [class.d-none]="rlaHome.isActive" />
+          <img src="../../assets/images/dashboard-active.svg" [class.d-none]="!rlaHome.isActive" />
+        </span>
+        <span class="fs-16 dashboard-label cursor-pointer">Products</span>
+      </div>
+      <div  class="cursor-pointer dashboard-active-span py-3" (click)="logOut()" routerLinkActive="active"
+      #rlaHome="routerLinkActive" [routerLinkActiveOptions]="{ exact: true }">
+      <span class="pl-3 pr-2">
+        <img src="../../assets/images/dashboard.svg" [class.d-none]="rlaHome.isActive" />
+        <img src="../../assets/images/dashboard-active.svg" [class.d-none]="!rlaHome.isActive" />
+      </span>
+      <span class="fs-16 dashboard-label">LogOut</span>
+    </div>
+
+    </div>
+  </div>
+</div>

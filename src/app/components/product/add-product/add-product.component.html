@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+       
+        <div class="col-md-12 mt-4">
+            <form id="contact" [formGroup]="productForm" (ngSubmit)="productCrud()">
+                <h3 *ngIf="!isEdit" class="text-center  rounded-sm w-50 mx-auto shadow-lg p-4 mb-4 bg-white"> Add
+                    Product</h3>
+                <h3 *ngIf="isEdit" class="text-center  rounded-sm w-50 mx-auto shadow-lg p-4 mb-4 bg-white"> Update
+                    Product</h3>
+
+                <fieldset class="form-group">
+                    <label class="text-uppercase">Product Title</label>
+                    <input class="form-control"
+                        [class.is-invalid]="productForm.get('title').invalid && productForm.get('title').touched"
+                        formControlName="title" placeholder="Product Title" type="text" tabindex="1" required autofocus>
+                    <span class="text-danger"
+                        *ngIf="productForm.get('title').invalid && productForm.get('title').touched">Please Enter
+                        Product Title</span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label class="text-uppercase">Product Price</label>
+                    <input class="form-control"
+                        [class.is-invalid]="productForm.get('price').invalid && productForm.get('price').touched"
+                        formControlName="price" placeholder="Product Price" type="number" tabindex="2" required>
+                    <span class="text-danger"
+                        *ngIf="productForm.get('price').invalid && productForm.get('price').touched">Please Enter
+                        Product Price</span>
+
+                </fieldset>
+                <fieldset class="form-group">
+                    <label class="text-uppercase">Product Category</label>
+                    <input class="form-control"
+                        [class.is-invalid]="productForm.get('category').invalid && productForm.get('category').touched"
+                        formControlName="category" placeholder="Product Category" type="text" tabindex="3" required>
+                    <span class="text-danger"
+                        *ngIf="productForm.get('category').invalid && productForm.get('category').touched">Please Enter
+                        Product Category</span>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label class="text-uppercase">Product Description</label>
+                    <textarea class="form-control"
+                        [class.is-invalid]="productForm.get('description').invalid && productForm.get('description').touched"
+                        formControlName="description" placeholder="Type your product description here...." tabindex="5"
+                        required></textarea>
+                    <span class="text-danger"
+                        *ngIf="productForm.get('description').invalid && productForm.get('description').touched">Please
+                        Enter
+                        Product Description</span>
+                </fieldset>
+                <fieldset>
+                    <button [disabled]="productForm.invalid" class="btn btn-success float-right" name="submit"
+                        type="submit" id="contact-submit" data-submit="...Sending">{{isEdit?'Update':'Add'}}
+                        Product</button>
+                </fieldset>
+
+            </form>
+        </div>
+       
+    </div>
+</div>
